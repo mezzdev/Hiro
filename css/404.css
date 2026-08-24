@@ -50,7 +50,7 @@ body {
 
 .main a:hover {
     background: #ffffff;
-    color: #000000;
+    color: rgb(5, 89, 247);
     border: none;
 
     transform: translateY(-3px);
