@@ -10,12 +10,18 @@
     const title = "Hiro — Monteur";
     let position = 0;
 
-    setInterval(() => {
+    function animateTitle() {
         document.title =
-            title.slice(position) + " • " + title.slice(0, position);
+            title.slice(position) +
+            " • " +
+            title.slice(0, position);
 
         position = (position + 1) % title.length;
-    }, 200);
+
+        setTimeout(animateTitle, 150);
+    }
+
+    animateTitle();
 </script>
 
     <link rel="icon" type="image/png" href="./Hiro.png">
