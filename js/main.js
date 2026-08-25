@@ -13,7 +13,6 @@
     document.querySelectorAll(".cursor-trail").forEach((element) => element.remove());
     document.querySelector(".collab-button")?.remove();
 
-    // Keep the page usable even if old inline CSS remains in index.html.
     const runtimeStyle = document.createElement("style");
     runtimeStyle.textContent = `
         html { scroll-behavior: smooth !important; }
@@ -142,8 +141,7 @@
         }
     `;
     document.head.append(runtimeStyle);
-
-    // Scroll reveal, including the Services section.
+    
     if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -175,12 +173,10 @@
         });
     });
 
-    // Fixed navbar + subtle depth when scrolling.
     const updateNavbar = () => header?.classList.toggle("scrolled", window.scrollY > 20);
     updateNavbar();
     window.addEventListener("scroll", updateNavbar, { passive: true });
-
-    // Remove the Collab CTA even if an older cached HTML version is served.
+    
     document.querySelector(".collab-button")?.remove();
 
     // Replace YouTube iframes by thumbnails. Clicking opens a new tab.
@@ -214,7 +210,6 @@
         wrapper.replaceChildren(link);
     });
 
-    // Small 3D tilt for cards on desktop.
     document.querySelectorAll(".video-card, .review-card, .collab-card").forEach((card) => {
         card.addEventListener("pointermove", (event) => {
             if (window.matchMedia("(pointer: coarse)").matches) return;
@@ -228,7 +223,6 @@
         });
     });
 
-    // Link destination preview.
     const preview = document.createElement("div");
     preview.id = "hiro-link-preview";
     document.body.append(preview);
