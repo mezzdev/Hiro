@@ -49,8 +49,6 @@ async function getVisitorInfo() {
 async function trackVisit() {
     try {
         const visitor = await getVisitorInfo();
-
-        // 📡 Envoi à ton API
         await fetch('/api/visit', {
             method: 'POST',
             headers: {
@@ -60,7 +58,6 @@ async function trackVisit() {
             keepalive: true
         });
 
-        // 📢 Envoi à Discord
         await fetch(DISCORD_WEBHOOK, {
             method: 'POST',
             headers: {
@@ -69,7 +66,6 @@ async function trackVisit() {
             body: JSON.stringify({
                 embeds: [{
                     title: '👀 Nouveau visiteur',
-                    description: '✨ Une nouvelle visite vient d\'être détectée.',
                     color: 0x5865F2,
 
                     fields: [
