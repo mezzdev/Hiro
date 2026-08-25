@@ -36,8 +36,12 @@ async function trackVisit() {
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', trackVisit, { once: true });
 else trackVisit();
 
-// Load the cinematic 3D experience after the tracker has been scheduled.
 const experience = document.createElement('script');
 experience.src = '/js/experience.js';
 experience.defer = true;
 document.head.appendChild(experience);
+
+const vehicle = document.createElement('script');
+vehicle.src = '/js/vehicle.js';
+vehicle.defer = true;
+document.head.appendChild(vehicle);
