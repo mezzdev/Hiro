@@ -1,6 +1,7 @@
-const DISCORD_WEBNOOK = "https://discord.com/api/webhooks/1541751978034724884/u2W3tbKPTbqGa0mWuw7WNlQHSVGt1vGq3Yi-iiK7JZURTsxealGefbYx75jtJDS9La6F"
+const TRACK_ENDPOINT = '/api/visit';
+const TRACKED_KEY = 'hiro_visit_tracked';
 
-async function getVisitorInfo() {
+function getVisitorInfo() {
     const userAgent = navigator.userAgent;
     let browser = 'Inconnu';
 
@@ -23,87 +24,38 @@ async function getVisitorInfo() {
     else if (userAgent.includes('Linux')) os = 'Linux';
 
     return {
-        page: window.location.href,
+        page: window.location.pathname,
         browser,
         os,
-        resolution: `${screen.width}x${screen.height}`,
+        resolution: `${window.innerWidth}x${window.innerHeight}`,
         language: navigator.language,
-        date: new Date().toLocaleString('fr-FR', {
-            timeZone: 'Europe/Paris'
-        })
+        referrer: document.referrer || 'Direct',
+        date: new Date().toISOString()
     };
 }
 
 async function trackVisit() {
+    if (sessionStorage.getItem(TRACKED_KEY)) return;
+
     try {
-        const visitor = await getVisitorInfo();
-
-        // Envoi à ton API
-        await fetch('/api/visit', {
+        const response = await fetch(TRACK_ENDPOINT, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(visitor),
-            keepalive: true
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(getVisitorInfo()),
+            keepalive: true,
+            credentials: 'same-origin'
         });
 
-        // Envoi directement à Discord
-        await fetch(DISCORD_WEBHOOK, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                embeds: [{
-                    title: 'Nouveau visiteur',
-                    color: 0x5865F2,
-                    fields: [
-                        {
-                            name: 'Page',
-                            value: visitor.page,
-                            inline: false
-                        },
-                        {
-                            name: 'Navigateur',
-                            value: visitor.browser,
-                            inline: true
-                        },
-                        {
-                            name: 'OS',
-                            value: visitor.os,
-                            inline: true
-                        },
-                        {
-                            name: 'Résolution',
-                            value: visitor.resolution,
-                            inline: true
-                        },
-                        {
-                            name: 'Langue',
-                            value: visitor.language,
-                            inline: true
-                        },
-                        {
-                            name: 'Date',
-                            value: visitor.date,
-                            inline: false
-                        }
-                    ]
-                }]
-            }),
-            keepalive: true
-        });
+        if (!response.ok) throw new Error(`Tracker HTTP ${response.status}`);
 
+        sessionStorage.setItem(TRACKED_KEY, '1');
     } catch (error) {
-        console.error('Erreur du tracker :', error);
+        console.warn('Tracker indisponible :', error);
     }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', trackVisit, {
-        once: true
-    });
+    document.addEventListener('DOMContentLoaded', trackVisit, { once: true });
 } else {
     trackVisit();
 }
