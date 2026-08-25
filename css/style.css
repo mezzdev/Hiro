@@ -30,119 +30,9 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-body.is-loading {
-    overflow: hidden;
-}
-
 a {
     color: inherit;
     text-decoration: none;
-}
-
-.page-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    background: #fff;
-    transition:
-        opacity 0.55s ease,
-        visibility 0.55s ease;
-}
-
-.page-loader.loaded {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.loader-inner {
-    width: min(420px, calc(100% - 48px));
-}
-
-.loader-brand {
-    margin-bottom: 34px;
-    color: var(--blue);
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(42px, 10vw, 72px);
-    font-weight: 800;
-    letter-spacing: -0.08em;
-    line-height: 1;
-}
-
-.loader-track {
-    height: 2px;
-    overflow: hidden;
-    background: #e7ebf1;
-}
-
-.loader-track span {
-    display: block;
-    width: 0;
-    height: 100%;
-    background: var(--blue);
-    transform-origin: left;
-    transition: width 0.18s ease;
-}
-
-.loader-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
-    color: var(--light-gray);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-}
-
-.loader-meta strong {
-    color: var(--blue);
-    font-weight: 700;
-}
-
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    width: 14px;
-    height: 14px;
-    border: 2px solid var(--blue);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition:
-        width 0.2s ease,
-        height 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease,
-        opacity 0.2s ease;
-    mix-blend-mode: multiply;
-}
-
-.custom-cursor span {
-    position: absolute;
-    inset: 4px;
-    border-radius: 50%;
-    background: var(--blue);
-}
-
-.custom-cursor.active {
-    width: 38px;
-    height: 38px;
-    background: rgba(22, 119, 255, 0.08);
-    border-color: rgba(22, 119, 255, 0.45);
-}
-
-.custom-cursor.active span {
-    inset: 12px;
-}
-
-body.cursor-ready,
-body.cursor-ready * {
-    cursor: none;
 }
 
 .navbar {
@@ -239,11 +129,7 @@ body.cursor-ready * {
     justify-content: center;
     padding: calc(var(--header-height) + 40px) 24px 40px;
     overflow: hidden;
-    background: radial-gradient(
-        ellipse 650px 400px at center,
-        rgba(22, 119, 255, 0.05),
-        transparent 70%
-    );
+    background: radial-gradient(ellipse 650px 400px at center, rgba(22, 119, 255, 0.05), transparent 70%);
 }
 
 .hero-glow {
@@ -253,12 +139,10 @@ body.cursor-ready * {
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(
-        ellipse,
-        rgba(22, 119, 255, 0.07),
-        transparent 70%
-    );
+    background: radial-gradient(ellipse, rgba(22, 119, 255, 0.07), transparent 70%);
     pointer-events: none;
+    filter: blur(42px);
+    animation: heroGlow 7s ease-in-out infinite;
 }
 
 .hero-content {
@@ -338,9 +222,7 @@ body.cursor-ready * {
 .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
+    transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 .reveal.visible {
@@ -375,10 +257,7 @@ body.cursor-ready * {
     border-radius: 18px;
     background: #fff;
     box-shadow: 0 10px 35px rgba(16, 24, 40, 0.045);
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-card::before {
@@ -454,9 +333,7 @@ body.cursor-ready * {
     border-radius: 18px;
     background: #fff;
     box-shadow: 0 12px 40px rgba(16, 24, 40, 0.05);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .video-card:hover {
@@ -490,9 +367,7 @@ body.cursor-ready * {
     border-radius: 24px;
     background: #fff;
     box-shadow: 0 15px 50px rgba(16, 24, 40, 0.05);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .review-card:hover {
@@ -566,10 +441,7 @@ body.cursor-ready * {
     border-radius: 22px;
     background: #fff;
     box-shadow: 0 12px 45px rgba(16, 24, 40, 0.05);
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .collab-card:hover {
@@ -606,22 +478,6 @@ body.cursor-ready * {
     color: var(--gray);
 }
 
-.collab-hint {
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.collab-hint span {
-    display: inline-block;
-    margin-left: 4px;
-    transition: transform 0.2s ease;
-}
-
-.collab-card:hover .collab-hint span {
-    transform: translate(3px, -3px);
-}
-
 .discord-button {
     display: inline-flex;
     align-items: center;
@@ -632,10 +488,7 @@ body.cursor-ready * {
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .discord-button:hover {
@@ -646,11 +499,7 @@ body.cursor-ready * {
 
 .contact {
     text-align: center;
-    background: radial-gradient(
-        ellipse 550px 300px at center,
-        rgba(22, 119, 255, 0.045),
-        transparent 72%
-    );
+    background: radial-gradient(ellipse 550px 300px at center, rgba(22, 119, 255, 0.045), transparent 72%);
 }
 
 .contact .section-container {
@@ -676,10 +525,20 @@ body.cursor-ready * {
         opacity: 0;
         transform: translateY(18px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes heroGlow {
+    0%, 100% {
+        opacity: 0.55;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.06);
     }
 }
 
@@ -730,10 +589,7 @@ body.cursor-ready * {
         visibility: hidden;
         transform: translateY(-8px);
         pointer-events: none;
-        transition:
-            opacity 0.2s ease,
-            transform 0.2s ease,
-            visibility 0.2s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     }
 
     .nav-links.active {
@@ -830,15 +686,6 @@ body.cursor-ready * {
 
     .collab-content h3 {
         font-size: 27px;
-    }
-
-    .custom-cursor {
-        display: none;
-    }
-
-    body.cursor-ready,
-    body.cursor-ready * {
-        cursor: auto;
     }
 }
 
