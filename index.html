@@ -1,20 +1,976 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff"><title>Hiro — Monteur</title><link rel="icon" type="image/png" href="./Hiro.png"><link rel="stylesheet" href="css/style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-body.is-loading{overflow:hidden}.page-loader{position:fixed;inset:0;z-index:9999;overflow:hidden;background:#f7f9fc;color:#101828}.page-loader.loaded{visibility:hidden;pointer-events:none}.loader-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(22,119,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(22,119,255,.045) 1px,transparent 1px);background-size:56px 56px}.loader-grid:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0,rgba(247,249,252,.7) 62%,#f7f9fc 100%)}.loader-noise{position:absolute;inset:-50%;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:loaderNoise .2s steps(2) infinite}.loader-frame{position:absolute;inset:22px;border:1px solid rgba(16,24,40,.08);pointer-events:none}.loader-frame:before,.loader-frame:after{content:"";position:absolute;width:26px;height:26px;border-color:#1677ff;border-style:solid}.loader-frame:before{top:-1px;left:-1px;border-width:2px 0 0 2px}.loader-frame:after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}.loader-head,.loader-foot{position:absolute;left:42px;right:42px;display:flex;justify-content:space-between;font:500 10px "DM Mono",monospace;letter-spacing:.13em;color:#8b96a8}.loader-head{top:40px}.loader-foot{bottom:40px}.loader-content{position:absolute;z-index:3;left:50%;top:50%;width:min(760px,calc(100% - 56px));transform:translate(-50%,-50%)}.loader-eyebrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;font:500 10px "DM Mono",monospace;letter-spacing:.14em;color:#8b96a8}.loader-dot{width:6px;height:6px;border-radius:50%;background:#1677ff;box-shadow:0 0 0 5px rgba(22,119,255,.08),0 0 22px rgba(22,119,255,.28);animation:pulseDot 1s ease-in-out infinite}.loader-brand{font:800 clamp(78px,15vw,158px)/.78 "Manrope",sans-serif;letter-spacing:-.105em;color:#1677ff}.loader-brand span{color:#101828}.loader-status{margin:38px 0 14px;font:500 11px "DM Mono",monospace;letter-spacing:.12em;color:#475467}.loader-track{position:relative;height:4px;background:#e3e8ef;overflow:hidden}.loader-track span{display:block;width:0;height:100%;background:#1677ff;box-shadow:0 0 18px rgba(22,119,255,.22);transition:width .1s linear}.loader-info{display:flex;justify-content:space-between;margin-top:10px;font:500 10px "DM Mono",monospace;color:#98a2b3}.loader-info strong{color:#1677ff;font-weight:500}.loader-log{height:76px;margin-top:26px;overflow:hidden;font:400 9px/1.85 "DM Mono",monospace;color:#98a2b3;text-transform:uppercase}.loader-log span:last-child{color:#475467}.loader-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(22,119,255,.09);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}.loader-orbit.one{width:min(68vw,820px);height:min(68vw,820px)}.loader-orbit.two{width:min(43vw,520px);height:min(43vw,520px);border-style:dashed;animation:orbit 16s linear infinite}.loader-orbit.three{width:min(22vw,270px);height:min(22vw,270px);border-color:rgba(22,119,255,.15);animation:orbitReverse 10s linear infinite}.loader-wave{position:absolute;z-index:8;left:-6%;bottom:-2px;width:112%;height:43%;background:#fff;border-radius:50% 50% 0 0/26% 26% 0 0;transform:translateY(115%);box-shadow:0 -18px 60px rgba(22,119,255,.08)}.page-loader.entering .loader-wave{animation:waveEnter 1.25s cubic-bezier(.76,0,.24,1) forwards}.page-loader.entering .loader-content,.page-loader.entering .loader-head,.page-loader.entering .loader-foot,.page-loader.entering .loader-frame,.page-loader.entering .loader-grid,.page-loader.entering .loader-noise,.page-loader.entering .loader-orbit{animation:loaderExit .55s ease forwards}.navbar{background:rgba(255,255,255,.74)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.hero-glow{filter:blur(42px);animation:heroGlow 7s ease-in-out infinite}.custom-cursor{position:fixed;top:0;left:0;width:18px;height:18px;border:1.5px solid rgba(22,119,255,.9);border-radius:50%;z-index:10001;pointer-events:none;opacity:0;transform:translate(-50%,-50%);will-change:left,top,width,height,border-color,background,box-shadow;transition:width .2s cubic-bezier(.2,.8,.2,1),height .2s cubic-bezier(.2,.8,.2,1),background .2s,border-color .2s,box-shadow .2s}.custom-cursor:before{content:"";position:absolute;inset:3px;border-radius:50%;background:#1677ff;opacity:.9}.custom-cursor:after{content:"";position:absolute;inset:-7px;border:1px solid rgba(22,119,255,.14);border-radius:50%;transform:scale(.7);transition:transform .25s ease,opacity .25s ease}.custom-cursor.active{width:34px;height:34px;background:rgba(22,119,255,.08);border-color:#1677ff;box-shadow:0 0 0 1px rgba(255,255,255,.8),0 8px 28px rgba(22,119,255,.18)}.custom-cursor.active:before{inset:11px}.custom-cursor.active:after{transform:scale(1);opacity:1}.cursor-trail{position:fixed;z-index:10000;width:3px;height:3px;border-radius:50%;background:#1677ff;pointer-events:none;opacity:0;transform:translate(-50%,-50%);will-change:left,top,opacity}.cursor-trail:nth-child(3n){width:2px;height:2px;opacity:.55}body.cursor-ready,body.cursor-ready *{cursor:none}.collab-hint{display:none!important}.video-card{transform:translate3d(0,var(--scroll-y,0),0) rotateX(var(--scroll-rotate,0deg)) scale(var(--scroll-scale,1));transform-origin:center center;transform-style:preserve-3d;will-change:transform;transition:box-shadow .3s ease}.video-card:hover{box-shadow:0 22px 55px rgba(16,24,40,.13);transform:translate3d(0,var(--scroll-y,0),0) rotateX(calc(var(--scroll-rotate,0deg) * .55)) scale(calc(var(--scroll-scale,1) + .015))}.video-wrapper{transform:translateZ(10px);backface-visibility:hidden}@keyframes loaderNoise{0%{transform:translate(0,0)}50%{transform:translate(2%,-1%)}}@keyframes pulseDot{50%{opacity:.45;box-shadow:0 0 0 8px rgba(22,119,255,.04),0 0 28px rgba(22,119,255,.18)}}@keyframes orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes orbitReverse{to{transform:translate(-50%,-50%) rotate(-360deg)}}@keyframes waveEnter{0%{transform:translateY(115%)}52%{transform:translateY(0)}100%{transform:translateY(115%)}}@keyframes loaderExit{to{opacity:0;transform:translateY(-12px)}}@keyframes heroGlow{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.06)}}@media(pointer:coarse){.custom-cursor,.cursor-trail{display:none}}@media(max-width:700px){.loader-frame{inset:14px}.loader-head,.loader-foot{left:28px;right:28px}.loader-content{width:calc(100% - 36px)}.loader-brand{font-size:25vw}.loader-orbit.one{width:110vw;height:110vw}.loader-orbit.two{width:70vw;height:70vw}.loader-orbit.three{width:38vw;height:38vw}.loader-wave{height:34%}.video-card{transform:none!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Hiro — Monteur</title>
+
+    <link rel="icon" type="image/png" href="./Hiro.png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        body.is-loading {
+            overflow: hidden;
+        }
+
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            overflow: hidden;
+            background: #f7f9fc;
+            color: #101828;
+        }
+
+        .page-loader.loaded {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(22,119,255,.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(22,119,255,.045) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+
+        .loader-grid:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at 50% 50%,
+                transparent 0,
+                rgba(247,249,252,.7) 62%,
+                #f7f9fc 100%
+            );
+        }
+
+        .loader-noise {
+            position: absolute;
+            inset: -50%;
+            opacity: .025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            animation: loaderNoise .2s steps(2) infinite;
+        }
+
+        .loader-frame {
+            position: absolute;
+            inset: 22px;
+            border: 1px solid rgba(16,24,40,.08);
+            pointer-events: none;
+        }
+
+        .loader-frame:before,
+        .loader-frame:after {
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-color: #1677ff;
+            border-style: solid;
+        }
+
+        .loader-frame:before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .loader-frame:after {
+            right: -1px;
+            bottom: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        .loader-head,
+        .loader-foot {
+            position: absolute;
+            left: 42px;
+            right: 42px;
+            display: flex;
+            justify-content: space-between;
+            font: 500 10px "DM Mono", monospace;
+            letter-spacing: .13em;
+            color: #8b96a8;
+        }
+
+        .loader-head {
+            top: 40px;
+        }
+
+        .loader-foot {
+            bottom: 40px;
+        }
+
+        .loader-content {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            top: 50%;
+            width: min(760px, calc(100% - 56px));
+            transform: translate(-50%, -50%);
+        }
+
+        .loader-eyebrow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            font: 500 10px "DM Mono", monospace;
+            letter-spacing: .14em;
+            color: #8b96a8;
+        }
+
+        .loader-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #1677ff;
+            box-shadow:
+                0 0 0 5px rgba(22,119,255,.08),
+                0 0 22px rgba(22,119,255,.28);
+            animation: pulseDot 1s ease-in-out infinite;
+        }
+
+        .loader-brand {
+            font: 800 clamp(78px, 15vw, 158px)/.78 "Manrope", sans-serif;
+            letter-spacing: -.105em;
+            color: #1677ff;
+        }
+
+        .loader-brand span {
+            color: #101828;
+        }
+
+        .loader-status {
+            margin: 38px 0 14px;
+            font: 500 11px "DM Mono", monospace;
+            letter-spacing: .12em;
+            color: #475467;
+        }
+
+        .loader-track {
+            position: relative;
+            height: 4px;
+            background: #e3e8ef;
+            overflow: hidden;
+        }
+
+        .loader-track span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: #1677ff;
+            box-shadow: 0 0 18px rgba(22,119,255,.22);
+            transition: width .1s linear;
+        }
+
+        .loader-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font: 500 10px "DM Mono", monospace;
+            color: #98a2b3;
+        }
+
+        .loader-info strong {
+            color: #1677ff;
+            font-weight: 500;
+        }
+
+        .loader-log {
+            height: 76px;
+            margin-top: 26px;
+            overflow: hidden;
+            font: 400 9px/1.85 "DM Mono", monospace;
+            color: #98a2b3;
+            text-transform: uppercase;
+        }
+
+        .loader-log span:last-child {
+            color: #475467;
+        }
+
+        .loader-orbit {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 1px solid rgba(22,119,255,.09);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .loader-orbit.one {
+            width: min(68vw, 820px);
+            height: min(68vw, 820px);
+        }
+
+        .loader-orbit.two {
+            width: min(43vw, 520px);
+            height: min(43vw, 520px);
+            border-style: dashed;
+            animation: orbit 16s linear infinite;
+        }
+
+        .loader-orbit.three {
+            width: min(22vw, 270px);
+            height: min(22vw, 270px);
+            border-color: rgba(22,119,255,.15);
+            animation: orbitReverse 10s linear infinite;
+        }
+
+        .loader-wave {
+            position: absolute;
+            z-index: 8;
+            left: -6%;
+            bottom: -2px;
+            width: 112%;
+            height: 43%;
+            background: #fff;
+            border-radius: 50% 50% 0 0 / 26% 26% 0 0;
+            transform: translateY(115%);
+            box-shadow: 0 -18px 60px rgba(22,119,255,.08);
+        }
+
+        .page-loader.entering .loader-wave {
+            animation: waveEnter 1.25s cubic-bezier(.76,0,.24,1) forwards;
+        }
+
+        .page-loader.entering .loader-content,
+        .page-loader.entering .loader-head,
+        .page-loader.entering .loader-foot,
+        .page-loader.entering .loader-frame,
+        .page-loader.entering .loader-grid,
+        .page-loader.entering .loader-noise,
+        .page-loader.entering .loader-orbit {
+            animation: loaderExit .55s ease forwards;
+        }
+
+        .navbar {
+            background: rgba(255,255,255,.74) !important;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .hero-glow {
+            filter: blur(42px);
+            animation: heroGlow 7s ease-in-out infinite;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid rgba(22,119,255,.9);
+            border-radius: 50%;
+            z-index: 10001;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            will-change:
+                left,
+                top,
+                width,
+                height,
+                border-color,
+                background,
+                box-shadow;
+            transition:
+                width .2s cubic-bezier(.2,.8,.2,1),
+                height .2s cubic-bezier(.2,.8,.2,1),
+                background .2s,
+                border-color .2s,
+                box-shadow .2s;
+        }
+
+        .custom-cursor:before {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: #1677ff;
+            opacity: .9;
+        }
+
+        .custom-cursor:after {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border: 1px solid rgba(22,119,255,.14);
+            border-radius: 50%;
+            transform: scale(.7);
+            transition:
+                transform .25s ease,
+                opacity .25s ease;
+        }
+
+        .custom-cursor.active {
+            width: 34px;
+            height: 34px;
+            background: rgba(22,119,255,.08);
+            border-color: #1677ff;
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,.8),
+                0 8px 28px rgba(22,119,255,.18);
+        }
+
+        .custom-cursor.active:before {
+            inset: 11px;
+        }
+
+        .custom-cursor.active:after {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            z-index: 10000;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #1677ff;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            will-change: left, top, opacity;
+        }
+
+        .cursor-trail:nth-child(3n) {
+            width: 2px;
+            height: 2px;
+            opacity: .55;
+        }
+
+        body.cursor-ready,
+        body.cursor-ready * {
+            cursor: none;
+        }
+
+        .collab-hint {
+            display: none !important;
+        }
+
+        .video-card {
+            transform:
+                translate3d(0, var(--scroll-y, 0), 0)
+                rotateX(var(--scroll-rotate, 0deg))
+                scale(var(--scroll-scale, 1));
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: box-shadow .3s ease;
+        }
+
+        .video-card:hover {
+            box-shadow: 0 22px 55px rgba(16,24,40,.13);
+            transform:
+                translate3d(0, var(--scroll-y, 0), 0)
+                rotateX(calc(var(--scroll-rotate, 0deg) * .55))
+                scale(calc(var(--scroll-scale, 1) + .015));
+        }
+
+        .video-wrapper {
+            transform: translateZ(10px);
+            backface-visibility: hidden;
+        }
+
+        @keyframes loaderNoise {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(2%, -1%);
+            }
+        }
+
+        @keyframes pulseDot {
+            50% {
+                opacity: .45;
+                box-shadow:
+                    0 0 0 8px rgba(22,119,255,.04),
+                    0 0 28px rgba(22,119,255,.18);
+            }
+        }
+
+        @keyframes orbit {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes orbitReverse {
+            to {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+        @keyframes waveEnter {
+            0% {
+                transform: translateY(115%);
+            }
+
+            52% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(115%);
+            }
+        }
+
+        @keyframes loaderExit {
+            to {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes heroGlow {
+            0%,
+            100% {
+                opacity: .55;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: .9;
+                transform: translate(-50%, -50%) scale(1.06);
+            }
+        }
+
+        @media (pointer: coarse) {
+            .custom-cursor,
+            .cursor-trail {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .loader-frame {
+                inset: 14px;
+            }
+
+            .loader-head,
+            .loader-foot {
+                left: 28px;
+                right: 28px;
+            }
+
+            .loader-content {
+                width: calc(100% - 36px);
+            }
+
+            .loader-brand {
+                font-size: 25vw;
+            }
+
+            .loader-orbit.one {
+                width: 110vw;
+                height: 110vw;
+            }
+
+            .loader-orbit.two {
+                width: 70vw;
+                height: 70vw;
+            }
+
+            .loader-orbit.three {
+                width: 38vw;
+                height: 38vw;
+            }
+
+            .loader-wave {
+                height: 34%;
+            }
+
+            .video-card {
+                transform: none !important;
+            }
+        }
+    </style>
 </head>
+
 <body class="is-loading">
-<div class="page-loader" id="page-loader" aria-label="Chargement du site" role="status"><div class="loader-grid" aria-hidden="true"></div><div class="loader-noise" aria-hidden="true"></div><div class="loader-frame" aria-hidden="true"></div><div class="loader-orbit one" aria-hidden="true"></div><div class="loader-orbit two" aria-hidden="true"></div><div class="loader-orbit three" aria-hidden="true"></div><div class="loader-head"><span>HIRO / 2026</span><span id="loader-clock">00:00:00</span></div><div class="loader-content"><div class="loader-eyebrow"><span>PORTFOLIO / VIDEO EDITOR</span><i class="loader-dot"></i></div><div class="loader-brand">HIRO<span>.</span></div><p class="loader-status" id="loader-status">INITIALISATION</p><div class="loader-track"><span id="loader-bar"></span></div><div class="loader-info"><span id="loader-detail">Préparation des ressources</span><strong id="loader-percent">0%</strong></div><div class="loader-log" id="loader-log"><span>› vérification du document</span><span>› préparation des médias</span><span>› chargement des polices</span></div></div><div class="loader-foot"><span>SYSTÈME PRÊT</span><span>PLEASE WAIT</span></div><div class="loader-wave" aria-hidden="true"></div></div>
-<div class="custom-cursor" aria-hidden="true"></div>
-<header class="navbar"><nav class="nav-container" aria-label="Navigation principale"><a href="#top" class="logo">Hiro</a><div class="nav-links"><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#reviews">Avis</a><a href="#collab">Collab</a><a href="#contact">Contact</a></div><button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button></nav></header>
-<main>
-<section class="hero" id="top"><div class="hero-glow" aria-hidden="true"></div><div class="hero-content"><p class="hero-small">MONTEUR VIDÉO</p><h1>HIRO</h1><div class="hero-line"></div><p class="hero-subtitle">Monteur Vidéo Freelance</p></div></section>
-<section class="section" id="services"><div class="section-container reveal"><span class="section-label">SERVICES</span><h2>Des montages qui donnent vie à tes idées.</h2><p class="section-description">Je transforme tes rushs en vidéos dynamiques, modernes et adaptées à ton idée.</p><div class="skills-grid" aria-label="Mes points forts"><article class="skill-card reveal"><span class="skill-number">01</span><h3>Rapide</h3><span class="skill-line" aria-hidden="true"></span></article><article class="skill-card reveal delay"><span class="skill-number">02</span><h3>Professionnel</h3><span class="skill-line" aria-hidden="true"></span></article><article class="skill-card reveal delay-2"><span class="skill-number">03</span><h3>Efficace</h3><span class="skill-line" aria-hidden="true"></span></article></div></div></section>
-<section class="section portfolio" id="portfolio"><div class="section-container"><div class="reveal"><span class="section-label">PORTFOLIO</span><h2>Mes réalisations :</h2></div><div class="videos-grid"><article class="video-card reveal"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/B3k-fNQCcLQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article><article class="video-card reveal delay"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Rvlx9754160" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article><article class="video-card reveal delay-2"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/JHUjIM5g1JU" title="Format Court" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article><article class="video-card reveal delay-2"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/GyRl4ynlEXQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article></div></div></section>
-<section class="section reviews" id="reviews"><div class="section-container"><div class="reveal"><span class="section-label">AVIS CLIENT</span><h2>Ce qu'on pensent de moi :</h2></div><article class="review-card reveal"><div class="review-header"><img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="review-avatar" loading="lazy"><div class="review-author"><h3>Cubi Game</h3><a href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer">@cubi-game6913</a></div></div><div class="review-stars" aria-label="5 étoiles">★★★★★</div><div class="review-text"><p>"Avant c'était vraiment chiant de monter mes vidéos moi même, j'aimais pas ça et ça me prenait un temps monstre (une vidéo/mois).</p><p>Mais en juin tu m'as contacté pour devenir mon monteur. Au départ j'étais septique car j'avais travaillé avec 3 autres monteurs extrêmement incompétent (ils ne m'avaient même pas rendu le derush au bout d'un mois).</p><p>En plus ton portfolio était pas fou, mais vazi j'ai eu le feeling et j'ai bien fait.</p><p>T'es quelqu'un de très vif, et t'appliques les retours/consignes sans rechigner.</p><p>Pendant les vacances pendant ta formation, les deadlines étaient tout le temps tenues, et je suis passé de 1 vidéo par mois, à 1 vidéo par semaine quasiment.</p><p>En plus le montage est vraiment quali et tu t'impliques bien dans la vidéo.</p><p>Honnêtement t'es un super monteur, et tes prix sont ultras bas (carrément c'est moi qui ait du augmenter, car je te bz niveau du tarif)."</p></div></article></div></section>
-<section class="section collaborations" id="collab"><div class="section-container"><div class="reveal"><span class="section-label">COLLABORATION</span><h2>J'ai pu travailler avec :</h2></div><a class="collab-card reveal" href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer" aria-label="Voir la chaîne YouTube de Cubi Game"><img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="collab-avatar" loading="lazy"><div class="collab-content"><span class="collab-category">YOUTUBE</span><h3>Cubi Game</h3><p>Influenceur</p></div></a></div></section>
-<section class="section contact" id="contact"><div class="section-container reveal"><span class="section-label">CONTACT</span><h2>Ta une idée mais t'arrives pas à la développer ?</h2><p class="section-description">Parlons-en directement sur Discord.</p><a href="https://discord.com/users/1362495950949454019" target="_blank" rel="noopener noreferrer" class="discord-button">DISCORD</a></div></section>
-</main><footer class="footer"><p>© 2026 Hiro</p></footer><script src="js/main.js" defer></script><script src="js/tracker.js" defer></script></body></html>
+
+    <div
+        class="page-loader"
+        id="page-loader"
+        aria-label="Chargement du site"
+        role="status"
+    >
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-noise" aria-hidden="true"></div>
+        <div class="loader-frame" aria-hidden="true"></div>
+
+        <div class="loader-orbit one" aria-hidden="true"></div>
+        <div class="loader-orbit two" aria-hidden="true"></div>
+        <div class="loader-orbit three" aria-hidden="true"></div>
+
+        <div class="loader-head">
+            <span>HIRO / 2026</span>
+            <span id="loader-clock">00:00:00</span>
+        </div>
+
+        <div class="loader-content">
+
+            <div class="loader-eyebrow">
+                <span>PORTFOLIO / VIDEO EDITOR</span>
+                <i class="loader-dot"></i>
+            </div>
+
+            <div class="loader-brand">
+                HIRO<span>.</span>
+            </div>
+
+            <p class="loader-status" id="loader-status">
+                INITIALISATION
+            </p>
+
+            <div class="loader-track">
+                <span id="loader-bar"></span>
+            </div>
+
+            <div class="loader-info">
+                <span id="loader-detail">
+                    Préparation des ressources
+                </span>
+
+                <strong id="loader-percent">
+                    0%
+                </strong>
+            </div>
+
+            <div class="loader-log" id="loader-log">
+                <span>› vérification du document</span>
+                <span>› préparation des médias</span>
+                <span>› chargement des polices</span>
+            </div>
+
+        </div>
+
+        <div class="loader-foot">
+            <span>SYSTÈME PRÊT</span>
+            <span>PLEASE WAIT</span>
+        </div>
+
+        <div class="loader-wave" aria-hidden="true"></div>
+    </div>
+
+    <div class="custom-cursor" aria-hidden="true"></div>
+
+    <header class="navbar">
+        <nav
+            class="nav-container"
+            aria-label="Navigation principale"
+        >
+            <a href="#top" class="logo">
+                Hiro
+            </a>
+
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#reviews">Avis</a>
+                <a href="#collab">Collab</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="top">
+
+            <div class="hero-glow" aria-hidden="true"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    MONTEUR VIDÉO
+                </p>
+
+                <h1>
+                    HIRO
+                </h1>
+
+                <div class="hero-line"></div>
+
+                <p class="hero-subtitle">
+                    Monteur Vidéo Freelance
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="section" id="services">
+
+            <div class="section-container reveal">
+
+                <span class="section-label">
+                    SERVICES
+                </span>
+
+                <h2>
+                    Des montages qui donnent vie à tes idées.
+                </h2>
+
+                <p class="section-description">
+                    Je transforme tes rushs en vidéos dynamiques,
+                    modernes et adaptées à ton idée.
+                </p>
+
+                <div
+                    class="skills-grid"
+                    aria-label="Mes points forts"
+                >
+
+                    <article class="skill-card reveal">
+                        <span class="skill-number">01</span>
+
+                        <h3>
+                            Rapide
+                        </h3>
+
+                        <span
+                            class="skill-line"
+                            aria-hidden="true"
+                        ></span>
+                    </article>
+
+                    <article class="skill-card reveal delay">
+                        <span class="skill-number">02</span>
+
+                        <h3>
+                            Professionnel
+                        </h3>
+
+                        <span
+                            class="skill-line"
+                            aria-hidden="true"
+                        ></span>
+                    </article>
+
+                    <article class="skill-card reveal delay-2">
+                        <span class="skill-number">03</span>
+
+                        <h3>
+                            Efficace
+                        </h3>
+
+                        <span
+                            class="skill-line"
+                            aria-hidden="true"
+                        ></span>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section portfolio" id="portfolio">
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <span class="section-label">
+                        PORTFOLIO
+                    </span>
+
+                    <h2>
+                        Mes réalisations :
+                    </h2>
+
+                </div>
+
+                <div class="videos-grid">
+
+                    <article class="video-card reveal">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/B3k-fNQCcLQ"
+                                title="Format long"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </article>
+
+                    <article class="video-card reveal delay">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/Rvlx9754160"
+                                title="Format long"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </article>
+
+                    <article class="video-card reveal delay-2">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/JHUjIM5g1JU"
+                                title="Format Court"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </article>
+
+                    <article class="video-card reveal delay-2">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/GyRl4ynlEXQ"
+                                title="Format long"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section reviews" id="reviews">
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <span class="section-label">
+                        AVIS CLIENT
+                    </span>
+
+                    <h2>
+                        Ce qu'on pensent de moi :
+                    </h2>
+
+                </div>
+
+                <article class="review-card reveal">
+
+                    <div class="review-header">
+
+                        <img
+                            src="./CubiGame.jpg"
+                            alt="Photo de profil de Cubi Game"
+                            class="review-avatar"
+                            loading="lazy"
+                        >
+
+                        <div class="review-author">
+
+                            <h3>
+                                Cubi Game
+                            </h3>
+
+                            <a
+                                href="https://www.youtube.com/@cubi-game6913"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                @cubi-game6913
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="review-stars"
+                        aria-label="5 étoiles"
+                    >
+                        ★★★★★
+                    </div>
+
+                    <div class="review-text">
+
+                        <p>
+                            "Avant c'était vraiment chiant de monter mes vidéos moi même,
+                            j'aimais pas ça et ça me prenait un temps monstre (une vidéo/mois).
+                        </p>
+
+                        <p>
+                            Mais en juin tu m'as contacté pour devenir mon monteur.
+                            Au départ j'étais septique car j'avais travaillé avec 3 autres
+                            monteurs extrêmement incompétent (ils ne m'avaient même pas rendu
+                            le derush au bout d'un mois).
+                        </p>
+
+                        <p>
+                            En plus ton portfolio était pas fou, mais vazi j'ai eu le feeling
+                            et j'ai bien fait.
+                        </p>
+
+                        <p>
+                            T'es quelqu'un de très vif, et t'appliques les retours/consignes
+                            sans rechigner.
+                        </p>
+
+                        <p>
+                            Pendant les vacances pendant ta formation, les deadlines étaient
+                            tout le temps tenues, et je suis passé de 1 vidéo par mois,
+                            à 1 vidéo par semaine quasiment.
+                        </p>
+
+                        <p>
+                            En plus le montage est vraiment quali et tu t'impliques bien
+                            dans la vidéo.
+                        </p>
+
+                        <p>
+                            Honnêtement t'es un super monteur, et tes prix sont ultras bas
+                            (carrément c'est moi qui ait du augmenter, car je te bz niveau
+                            du tarif)."
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section
+            class="section collaborations"
+            id="collab"
+        >
+
+            <div class="section-container">
+
+                <div class="reveal">
+
+                    <span class="section-label">
+                        COLLABORATION
+                    </span>
+
+                    <h2>
+                        J'ai pu travailler avec :
+                    </h2>
+
+                </div>
+
+                <a
+                    class="collab-card reveal"
+                    href="https://www.youtube.com/@cubi-game6913"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Voir la chaîne YouTube de Cubi Game"
+                >
+
+                    <img
+                        src="./CubiGame.jpg"
+                        alt="Photo de profil de Cubi Game"
+                        class="collab-avatar"
+                        loading="lazy"
+                    >
+
+                    <div class="collab-content">
+
+                        <span class="collab-category">
+                            YOUTUBE
+                        </span>
+
+                        <h3>
+                            Cubi Game
+                        </h3>
+
+                        <p>
+                            Influenceur
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="section contact" id="contact">
+
+            <div class="section-container reveal">
+
+                <span class="section-label">
+                    CONTACT
+                </span>
+
+                <h2>
+                    Ta une idée mais t'arrives pas à la développer ?
+                </h2>
+
+                <p class="section-description">
+                    Parlons-en directement sur Discord.
+                </p>
+
+                <a
+                    href="https://discord.com/users/1362495950949454019"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="discord-button"
+                >
+                    DISCORD
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Hiro
+        </p>
+
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/tracker.js" defer></script>
+
+</body>
+
+</html>
