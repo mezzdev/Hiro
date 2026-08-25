@@ -3,43 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
 
     <title>Hiro — Monteur</title>
-
-    <script>
-    const title = "Hiro — Monteur";
-    let position = 0;
-
-    function animateTitle() {
-        document.title =
-            title.slice(position) +
-            " • " +
-            title.slice(0, position);
-
-        position = (position + 1) % title.length;
-
-        setTimeout(animateTitle, 150);
-    }
-
-    animateTitle();
-</script>
 
     <link rel="icon" type="image/png" href="./Hiro.png">
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <header class="navbar">
-        <nav class="nav-container">
+        <nav class="nav-container" aria-label="Navigation principale">
             <a href="#top" class="logo">Hiro</a>
 
             <div class="nav-links">
@@ -50,296 +28,150 @@
                 <a href="#contact">Contact</a>
             </div>
 
-            <button class="menu-toggle" aria-label="Menu">
-                ☰
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-navigation">
+                <span></span><span></span><span></span>
             </button>
         </nav>
     </header>
 
     <main>
-
         <section class="hero" id="top">
-            <div class="hero-glow"></div>
+            <div class="hero-glow" aria-hidden="true"></div>
 
             <div class="hero-content">
                 <p class="hero-small">MONTEUR VIDÉO</p>
-
                 <h1>HIRO</h1>
-
                 <div class="hero-line"></div>
-
-                <p class="hero-subtitle">
-                    Monteur Vidéo Freelance
-                </p>
+                <p class="hero-subtitle">Monteur Vidéo Freelance</p>
             </div>
         </section>
 
         <section class="section" id="services">
             <div class="section-container reveal">
-
-                <span class="section-label">
-                    SERVICES
-                </span>
-
-                <h2>
-                    Des montages qui donnent vie à tes idées.
-                </h2>
-
+                <span class="section-label">SERVICES</span>
+                <h2>Des montages qui donnent vie à tes idées.</h2>
                 <p class="section-description">
                     Je transforme tes rushs en vidéos dynamiques,
                     modernes et adaptées à ton idée.
                 </p>
 
+                <div class="skills-grid" aria-label="Mes points forts">
+                    <article class="skill-card reveal">
+                        <span class="skill-number">01</span>
+                        <h3>Rapide</h3>
+                        <span class="skill-line" aria-hidden="true"></span>
+                    </article>
+                    <article class="skill-card reveal delay">
+                        <span class="skill-number">02</span>
+                        <h3>Professionnel</h3>
+                        <span class="skill-line" aria-hidden="true"></span>
+                    </article>
+                    <article class="skill-card reveal delay-2">
+                        <span class="skill-number">03</span>
+                        <h3>Efficace</h3>
+                        <span class="skill-line" aria-hidden="true"></span>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section class="section portfolio" id="portfolio">
             <div class="section-container">
-
                 <div class="reveal">
-                    <span class="section-label">
-                        PORTFOLIO
-                    </span>
-
-                    <h2>
-                        Mes réalisations : 
-                    </h2>
+                    <span class="section-label">PORTFOLIO</span>
+                    <h2>Mes réalisations :</h2>
                 </div>
 
                 <div class="videos-grid">
-
                     <article class="video-card reveal">
                         <div class="video-wrapper">
-                            <iframe
-                                src="https://www.youtube.com/embed/B3k-fNQCcLQ"
-                                title="Format long"
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                            </iframe>
+                            <iframe src="https://www.youtube.com/embed/B3k-fNQCcLQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </article>
-
                     <article class="video-card reveal delay">
                         <div class="video-wrapper">
-                            <iframe
-                                src="https://www.youtube.com/embed/Rvlx9754160"
-                                title="Format long"
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                            </iframe>
+                            <iframe src="https://www.youtube.com/embed/Rvlx9754160" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </article>
-
-                    <article class="video-card reveal delay">
+                    <article class="video-card reveal delay-2">
                         <div class="video-wrapper">
-                            <iframe
-                                src="https://www.youtube.com/embed/JHUjIM5g1JU"
-                                title="Format Court"
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                            </iframe>
+                            <iframe src="https://www.youtube.com/embed/JHUjIM5g1JU" title="Format Court" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </article>
-
-                                        <article class="video-card reveal delay">
+                    <article class="video-card reveal delay-2">
                         <div class="video-wrapper">
-                            <iframe
-                                src="https://www.youtube.com/embed/GyRl4ynlEXQ"
-                                title="Format long"
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                            </iframe>
+                            <iframe src="https://www.youtube.com/embed/GyRl4ynlEXQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
 
         <section class="section reviews" id="reviews">
             <div class="section-container">
-
                 <div class="reveal">
-                    <span class="section-label">
-                        AVIS CLIENT
-                    </span>
-
-                    <h2>
-                        Ce qu'on pensent de moi : 
-                    </h2>
+                    <span class="section-label">AVIS CLIENT</span>
+                    <h2>Ce qu'on pensent de moi :</h2>
                 </div>
 
                 <article class="review-card reveal">
-
                     <div class="review-header">
-
-                        <img
-                            src="./CubiGame.jpg"
-                            alt="Cubi game pp"
-                            class="review-avatar"
-                        >
-
+                        <img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="review-avatar" loading="lazy">
                         <div class="review-author">
                             <h3>Cubi Game</h3>
-
-                            <a
-                                href="https://www.youtube.com/@cubi-game6913"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                @cubi-game6913
-                            </a>
+                            <a href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer">@cubi-game6913</a>
                         </div>
-
                     </div>
 
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
+                    <div class="review-stars" aria-label="5 étoiles">★★★★★</div>
 
                     <div class="review-text">
-
-                        <p>
-                            "Avant c'était vraiment chiant de monter mes vidéos
-                            moi même, j'aimais pas ça et ça me prenait un temps
-                            monstre (une vidéo/mois).
-                        </p>
-
-                        <p>
-                            Mais en juin tu m'as contacté pour devenir mon monteur.
-                            Au départ j'étais septique car j'avais travaillé avec
-                            3 autres monteurs extrêmement incompétent
-                            (ils ne m'avaient même pas rendu le derush au bout
-                            d'un mois).
-                        </p>
-
-                        <p>
-                            En plus ton portfolio était pas fou, mais vazi j'ai eu
-                            le feeling et j'ai bien fait.
-                        </p>
-
-                        <p>
-                            T'es quelqu'un de très vif, et t'appliques les
-                            retours/consignes sans rechigner.
-                        </p>
-
-                        <p>
-                            Pendant les vacances pendant ta formation, les
-                            deadlines étaient tout le temps tenues, et je suis
-                            passé de 1 vidéo par mois, à 1 vidéo par semaine
-                            quasiment.
-                        </p>
-
-                        <p>
-                            En plus le montage est vraiment quali et tu t'impliques
-                            bien dans la vidéo.
-                        </p>
-
-                        <p>
-                            Honnêtement t'es un super monteur, et tes prix sont
-                            ultras bas (carrément c'est moi qui ait du augmenter,
-                            car je te bz niveau du tarif)."
-                        </p>
-
+                        <p>"Avant c'était vraiment chiant de monter mes vidéos moi même, j'aimais pas ça et ça me prenait un temps monstre (une vidéo/mois).</p>
+                        <p>Mais en juin tu m'as contacté pour devenir mon monteur. Au départ j'étais septique car j'avais travaillé avec 3 autres monteurs extrêmement incompétent (ils ne m'avaient même pas rendu le derush au bout d'un mois).</p>
+                        <p>En plus ton portfolio était pas fou, mais vazi j'ai eu le feeling et j'ai bien fait.</p>
+                        <p>T'es quelqu'un de très vif, et t'appliques les retours/consignes sans rechigner.</p>
+                        <p>Pendant les vacances pendant ta formation, les deadlines étaient tout le temps tenues, et je suis passé de 1 vidéo par mois, à 1 vidéo par semaine quasiment.</p>
+                        <p>En plus le montage est vraiment quali et tu t'impliques bien dans la vidéo.</p>
+                        <p>Honnêtement t'es un super monteur, et tes prix sont ultras bas (carrément c'est moi qui ait du augmenter, car je te bz niveau du tarif)."</p>
                     </div>
-
                 </article>
             </div>
         </section>
 
         <section class="section collaborations" id="collab">
             <div class="section-container">
-
                 <div class="reveal">
-
-                    <span class="section-label">
-                        COLLABORATION
-                    </span>
-
-                    <h2>
-                        J'ai pu travailler avec : 
-                    </h2>
-
+                    <span class="section-label">COLLABORATION</span>
+                    <h2>J'ai pu travailler avec :</h2>
                 </div>
 
-                <article class="collab-card reveal">
-
-                    <img
-                        src="./CubiGame.jpg"
-                        alt="Photo de profil de Cubi Game"
-                        class="collab-avatar"
-                    >
-
+                <a class="collab-card reveal" href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer" aria-label="Voir la chaîne YouTube de Cubi Game">
+                    <img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="collab-avatar" loading="lazy">
                     <div class="collab-content">
-
-                        <span class="collab-category">
-                            YOUTUBE
-                        </span>
-
-                        <h3>
-                            Cubi Game
-                        </h3>
-
-                        <p>
-                            Influenceur
-                        </p>
-
-                        <a
-                            href="https://www.youtube.com/@cubi-game6913"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="collab-button"
-                        >
-                            Voir la chaîne
-                        </a>
-
+                        <span class="collab-category">YOUTUBE</span>
+                        <h3>Cubi Game</h3>
+                        <p>Influenceur</p>
+                        <span class="collab-hint">Ouvrir la chaîne <span aria-hidden="true">↗</span></span>
                     </div>
-
-                </article>
+                </a>
             </div>
         </section>
 
         <section class="section contact" id="contact">
             <div class="section-container reveal">
-
-                <span class="section-label">
-                    CONTACT
-                </span>
-
-                <h2>
-                    Ta une idée mais t'arrives pas à la développer ?
-                </h2>
-
-                <p class="section-description">
-                    Parlons-en directement sur Discord.
-                </p>
-
-                <a
-                    href="https://discord.com/users/1362495950949454019"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="discord-button"
-                >
-                    DISCORD
-                </a>
-
+                <span class="section-label">CONTACT</span>
+                <h2>Ta une idée mais t'arrives pas à la développer ?</h2>
+                <p class="section-description">Parlons-en directement sur Discord.</p>
+                <a href="https://discord.com/users/1362495950949454019" target="_blank" rel="noopener noreferrer" class="discord-button">DISCORD</a>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
-        <p>
-            © 2026 Hiro
-        </p>
+        <p>© 2026 Hiro</p>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/tracker.js"></script>
-
+    <script src="js/main.js" defer></script>
+    <script src="js/tracker.js" defer></script>
 </body>
 </html>
