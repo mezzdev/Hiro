@@ -1,7 +1,6 @@
 (() => {
   'use strict';
 
-  /* Hiro UX layer — intentionally dependency-free and GitHub Pages safe. */
   const style = document.createElement('style');
   style.textContent = `
     /* Loader removed: the site starts immediately. */
@@ -105,17 +104,14 @@
   `;
   document.head.appendChild(style);
 
-  // Remove the loader immediately, without waiting for resources.
   document.body.classList.remove('is-loading');
   document.querySelector('#page-loader')?.remove();
 
-  // Keep navbar fixed and add a subtle state change after scrolling.
   const navbar = document.querySelector('.navbar');
   const updateNavbar = () => navbar?.classList.toggle('hiro-scrolled', window.scrollY > 24);
   window.addEventListener('scroll', updateNavbar, { passive: true });
   updateNavbar();
 
-  // Scroll reveal for every meaningful section/card, with blur.
   const targets = [...document.querySelectorAll(
     '.section-container, .skill-card, .video-card, .review-card, .collab-card, .contact .section-container'
   )];
@@ -135,7 +131,6 @@
     targets.forEach(el => el.classList.add('hiro-visible'));
   }
 
-  // 3D tilt that follows the pointer, without any external library.
   const tiltTargets = [...document.querySelectorAll('.skill-card, .video-card, .review-card, .collab-card')];
   if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     tiltTargets.forEach(card => {
@@ -155,7 +150,6 @@
     });
   }
 
-  // Small destination preview when hovering a clickable element.
   const preview = document.createElement('div');
   preview.id = 'hiro-link-preview';
   preview.setAttribute('aria-hidden', 'true');
