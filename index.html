@@ -15,11 +15,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="is-loading">
+    <div class="page-loader" id="page-loader" aria-label="Chargement du site" role="status">
+        <div class="loader-inner">
+            <div class="loader-brand">HIRO</div>
+            <div class="loader-track" aria-hidden="true"><span id="loader-bar"></span></div>
+            <div class="loader-meta"><span>CHARGEMENT</span><strong id="loader-percent">0%</strong></div>
+        </div>
+    </div>
+
+    <div class="custom-cursor" aria-hidden="true">
+        <span></span>
+    </div>
+
     <header class="navbar">
         <nav class="nav-container" aria-label="Navigation principale">
             <a href="#top" class="logo">Hiro</a>
-
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
@@ -27,8 +38,7 @@
                 <a href="#collab">Collab</a>
                 <a href="#contact">Contact</a>
             </div>
-
-            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-navigation">
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </nav>
@@ -37,7 +47,6 @@
     <main>
         <section class="hero" id="top">
             <div class="hero-glow" aria-hidden="true"></div>
-
             <div class="hero-content">
                 <p class="hero-small">MONTEUR VIDÉO</p>
                 <h1>HIRO</h1>
@@ -50,81 +59,33 @@
             <div class="section-container reveal">
                 <span class="section-label">SERVICES</span>
                 <h2>Des montages qui donnent vie à tes idées.</h2>
-                <p class="section-description">
-                    Je transforme tes rushs en vidéos dynamiques,
-                    modernes et adaptées à ton idée.
-                </p>
-
+                <p class="section-description">Je transforme tes rushs en vidéos dynamiques, modernes et adaptées à ton idée.</p>
                 <div class="skills-grid" aria-label="Mes points forts">
-                    <article class="skill-card reveal">
-                        <span class="skill-number">01</span>
-                        <h3>Rapide</h3>
-                        <span class="skill-line" aria-hidden="true"></span>
-                    </article>
-                    <article class="skill-card reveal delay">
-                        <span class="skill-number">02</span>
-                        <h3>Professionnel</h3>
-                        <span class="skill-line" aria-hidden="true"></span>
-                    </article>
-                    <article class="skill-card reveal delay-2">
-                        <span class="skill-number">03</span>
-                        <h3>Efficace</h3>
-                        <span class="skill-line" aria-hidden="true"></span>
-                    </article>
+                    <article class="skill-card reveal"><span class="skill-number">01</span><h3>Rapide</h3><span class="skill-line" aria-hidden="true"></span></article>
+                    <article class="skill-card reveal delay"><span class="skill-number">02</span><h3>Professionnel</h3><span class="skill-line" aria-hidden="true"></span></article>
+                    <article class="skill-card reveal delay-2"><span class="skill-number">03</span><h3>Efficace</h3><span class="skill-line" aria-hidden="true"></span></article>
                 </div>
             </div>
         </section>
 
         <section class="section portfolio" id="portfolio">
             <div class="section-container">
-                <div class="reveal">
-                    <span class="section-label">PORTFOLIO</span>
-                    <h2>Mes réalisations :</h2>
-                </div>
-
+                <div class="reveal"><span class="section-label">PORTFOLIO</span><h2>Mes réalisations :</h2></div>
                 <div class="videos-grid">
-                    <article class="video-card reveal">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/B3k-fNQCcLQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </article>
-                    <article class="video-card reveal delay">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/Rvlx9754160" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </article>
-                    <article class="video-card reveal delay-2">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/JHUjIM5g1JU" title="Format Court" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </article>
-                    <article class="video-card reveal delay-2">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/GyRl4ynlEXQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </article>
+                    <article class="video-card reveal"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/B3k-fNQCcLQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article>
+                    <article class="video-card reveal delay"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Rvlx9754160" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article>
+                    <article class="video-card reveal delay-2"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/JHUjIM5g1JU" title="Format Court" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article>
+                    <article class="video-card reveal delay-2"><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/GyRl4ynlEXQ" title="Format long" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></article>
                 </div>
             </div>
         </section>
 
         <section class="section reviews" id="reviews">
             <div class="section-container">
-                <div class="reveal">
-                    <span class="section-label">AVIS CLIENT</span>
-                    <h2>Ce qu'on pensent de moi :</h2>
-                </div>
-
+                <div class="reveal"><span class="section-label">AVIS CLIENT</span><h2>Ce qu'on pensent de moi :</h2></div>
                 <article class="review-card reveal">
-                    <div class="review-header">
-                        <img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="review-avatar" loading="lazy">
-                        <div class="review-author">
-                            <h3>Cubi Game</h3>
-                            <a href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer">@cubi-game6913</a>
-                        </div>
-                    </div>
-
+                    <div class="review-header"><img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="review-avatar" loading="lazy"><div class="review-author"><h3>Cubi Game</h3><a href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer">@cubi-game6913</a></div></div>
                     <div class="review-stars" aria-label="5 étoiles">★★★★★</div>
-
                     <div class="review-text">
                         <p>"Avant c'était vraiment chiant de monter mes vidéos moi même, j'aimais pas ça et ça me prenait un temps monstre (une vidéo/mois).</p>
                         <p>Mais en juin tu m'as contacté pour devenir mon monteur. Au départ j'étais septique car j'avais travaillé avec 3 autres monteurs extrêmement incompétent (ils ne m'avaient même pas rendu le derush au bout d'un mois).</p>
@@ -140,36 +101,20 @@
 
         <section class="section collaborations" id="collab">
             <div class="section-container">
-                <div class="reveal">
-                    <span class="section-label">COLLABORATION</span>
-                    <h2>J'ai pu travailler avec :</h2>
-                </div>
-
+                <div class="reveal"><span class="section-label">COLLABORATION</span><h2>J'ai pu travailler avec :</h2></div>
                 <a class="collab-card reveal" href="https://www.youtube.com/@cubi-game6913" target="_blank" rel="noopener noreferrer" aria-label="Voir la chaîne YouTube de Cubi Game">
                     <img src="./CubiGame.jpg" alt="Photo de profil de Cubi Game" class="collab-avatar" loading="lazy">
-                    <div class="collab-content">
-                        <span class="collab-category">YOUTUBE</span>
-                        <h3>Cubi Game</h3>
-                        <p>Influenceur</p>
-                        <span class="collab-hint">Ouvrir la chaîne <span aria-hidden="true">↗</span></span>
-                    </div>
+                    <div class="collab-content"><span class="collab-category">YOUTUBE</span><h3>Cubi Game</h3><p>Influenceur</p><span class="collab-hint">Ouvrir la chaîne <span aria-hidden="true">↗</span></span></div>
                 </a>
             </div>
         </section>
 
         <section class="section contact" id="contact">
-            <div class="section-container reveal">
-                <span class="section-label">CONTACT</span>
-                <h2>Ta une idée mais t'arrives pas à la développer ?</h2>
-                <p class="section-description">Parlons-en directement sur Discord.</p>
-                <a href="https://discord.com/users/1362495950949454019" target="_blank" rel="noopener noreferrer" class="discord-button">DISCORD</a>
-            </div>
+            <div class="section-container reveal"><span class="section-label">CONTACT</span><h2>Ta une idée mais t'arrives pas à la développer ?</h2><p class="section-description">Parlons-en directement sur Discord.</p><a href="https://discord.com/users/1362495950949454019" target="_blank" rel="noopener noreferrer" class="discord-button">DISCORD</a></div>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>© 2026 Hiro</p>
-    </footer>
+    <footer class="footer"><p>© 2026 Hiro</p></footer>
 
     <script src="js/main.js" defer></script>
     <script src="js/tracker.js" defer></script>
