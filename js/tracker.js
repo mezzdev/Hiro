@@ -133,22 +133,6 @@ async function trackVisit() {
             keepalive: true
         });
 
-        console.log(`
-
-----------------------------------------------------
-
-      ▄▀▀▀▀▄▄▀▀▄   ▄▀▀▀▀▀█  ▄▀▀▀▀▄   ▄▀▀▀▀▄ 
-      █          █ █      ▓ █      █ █      █
-      █  ░   ░   █ █  █▀▀▀▀ ▀▀▀▄  ▄▀  ▀▀▀▄  ▄▀
-      ▓  ░   ░   █ ▓  █▄█▄▄  ▄▀  ▀▄▄  ▄▀  ▀▄▄
-      ▒  ▒   ▒   ▓ ▒      ▒ ▒      ▒ ▒      ▒
-      ▒▄▄▓ ▄▄▓ ▄▄▒  ▀▄▄▄▄▄█  ▀▄▄▄▄▄█  ▀▄▄▄▄▄█
-
-----------------------------------------------------
-
-Developper of this website : https://guns.lol/mezzdev
-
-`, "color: #00ff66; font-weight: bold;");
 
     } catch (error) {
         console.error('❌ Erreur du tracker :', error);
